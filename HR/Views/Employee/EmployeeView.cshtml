@@ -1,0 +1,85 @@
+﻿@model HR.Models.Vmemployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeView</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/twitter-bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> Name </div>
+            <div class="col-xs-1">
+                <input type="text" class="form-control" asp-for="emp.Name" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> Phone </div>
+            <div class="col-xs-1">
+                <input type="text" class="form-control" asp-for="emp.Phone" />
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> Email </div>
+            <div class="col-xs-1">
+                <input type="email" class="form-control" asp-for="emp.Email" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> Birthday </div>
+            <div class="col-xs-1">
+                <input type="date" class="form-control" />
+                <span asp-validation-for="emp.Birthday"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> Image </div>
+            <div class="col-xs-1">
+                <input type="file" class="form-control" asp-for="emp.Image"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-1 col-lg-1">
+        <span>Country</span>
+    </div>
+    <div class="col-xs-3 col-lg-3">
+        <select class="form-control" asp-items='new SelectList(Model._country,"ID","Name")' asp-for="emp.Country_id">
+        </select>
+    </div>
+
+    <div class="col-xs-1 col-lg-1">
+        <span>Department</span>
+    </div>
+    <div class="col-xs-3 col-lg-3">
+        <select class="form-control" asp-items='new SelectList(Model.Dep,"ID","Name")' asp-for="emp.Department_ID">
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1 col-xs-1">
+            <div> SAVE </div>
+            <div class="col-xs-1">
+                <input type="submit" class="btn btn-primary" value="SAVE" asp-action="savedata" />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
